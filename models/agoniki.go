@@ -8,8 +8,10 @@ import (
 )
 
 const (
-	Positive = 1
-	Negative = -1
+	Angry          = 1
+	SeriouslyAngry = 2
+	Positive       = 1
+	Negative       = -1
 )
 
 type Agoniki struct {
@@ -31,14 +33,20 @@ func (a *Agoniki) Call(msg string) bool {
 // Anger 怒りフラグ設定
 func (a *Agoniki) Anger(msg string) {
 	if !a.called {
+		angerCount := 0
 		for _, swearing := range config.DiscordEnv.Swearings {
 			if strings.Contains(msg, swearing) {
-				a.Angry = true
+				angerCount++
 			}
 		}
-	}
-	for _, swearing := range config.DiscordEnv.Swearings2 {
-		if strings.Contains(msg, swearing) {
+		for _, swearing := range config.DiscordEnv.Swearings2 {
+			if strings.Contains(msg, swearing) {
+				angerCount += 2
+			}
+		}
+		if angerCount == Angry {
+			a.Angry = true
+		} else if angerCount >= SeriouslyAngry {
 			a.SeriouslyAngry = true
 		}
 	}

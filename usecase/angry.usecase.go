@@ -19,9 +19,9 @@ func NewAngry(a *models.Agoniki) Responser {
 
 // Response 怒りフラグに応じてメッセージを投稿させる
 func (a *angry) Response(session *discordgo.Session, event *discordgo.MessageCreate) error {
-
+	// 怒りカウントをとって一定以上ならめっちゃ怒る。
 	a.agoniki.Anger(event.Content)
-
+	// Angry XOR SeriouslyAngryは必ず真になる
 	if a.agoniki.Angry {
 		texts := a.getAngryText()
 		for _, text := range texts {
