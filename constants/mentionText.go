@@ -1,9 +1,5 @@
 package constants
 
-import (
-	"github.com/toyohashi6140/discord-bot/utils"
-)
-
 const (
 	Reply                                     = "呼んだ？"
 	WhoIsThat                                 = "それ、誰？"
@@ -59,11 +55,3 @@ var (
 		{TheOneWhoWaitsIsTheMan},
 	}
 )
-
-// 1/2の割合でお前さあ・・・に変更
-func SwitchYouKnowThatToComeOnYou() {
-	i := utils.RandNumber(2)
-	if i == 0 {
-		SeriouslyAngryMentionGroup[0][0] = ComeOnYou
-	}
-}

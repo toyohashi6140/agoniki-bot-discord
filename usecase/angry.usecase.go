@@ -58,7 +58,11 @@ func (a *angry) getAngryText() []string {
 func (a *angry) getSeriouslyAngryText() []string {
 	i := utils.RandNumber(100)
 	if i%2 == 0 {
-		constants.SwitchYouKnowThatToComeOnYou()
+		// 1/2の割合でお前さあ・・・に変更
+		comeOnYouRand := utils.RandNumber(100)
+		if comeOnYouRand%2 == 0 {
+			constants.SeriouslyAngryMentionGroup[0][0] = constants.ComeOnYou
+		}
 		return constants.SeriouslyAngryMentionGroup[0]
 	} else if i%3 == 0 {
 		return constants.SeriouslyAngryMentionGroup[1]
