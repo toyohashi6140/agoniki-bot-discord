@@ -24,6 +24,11 @@ const (
 	AshtrayInFrontOfMe                        = "僕の目の前には灰皿があります"
 	TheOneWhoWaitsIsTheMan                    = "他の男とヤっても黙って待っててやるのが余裕のある男なんですよ"
 	DonotStayWithMyMother                     = "母親と一緒にするな"
+	CannotDeskWork                            = "俺にデスクワークは無理！"
+	CareerOnTime                              = "30歳までならキャリア形成間に合うってマジ？"
+	SorryToBePartTimeJob                      = "フリーターで悪かったな"
+	DoNotFoolPartTimeJob                      = "ドカタを馬鹿にすんな"
+	IAmDoingItBecauseIWantTo                  = "俺はやりたくてやってんねん"
 )
 
 var (
@@ -39,9 +44,16 @@ var (
 		{DecentHumanBeing},
 		{Enough},
 	}
+	ALittleAngryMentionGroup = [][]string{
+		{CannotDeskWork},
+		{CareerOnTime},
+		{SorryToBePartTimeJob},
+		{YouKnowThat, DoNotFoolPartTimeJob, IAmDoingItBecauseIWantTo},
+	}
 	SeriouslyAngryMentionGroup = [][]string{
 		{YouKnowThat, ItIsNotAJokeIfItIsNotFunToBeTold},
 		{Sorry},
+		{DonotStayWithMyMother},
 		{DestinyToIncite},
 		{Enough},
 	}

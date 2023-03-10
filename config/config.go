@@ -9,6 +9,7 @@ type discordEnv struct {
 	Token      string   `envconfig:"BOT_TOKEN" require:"true"`
 	Swearings  []string `envconfig:"SWEARINGS" require:"true"`
 	Swearings2 []string `envconfig:"SWEARINGS2" require:"true"`
+	Swearings3 []string `envconfig:"SWEARINGS3" require:"true"`
 }
 
 func init() {

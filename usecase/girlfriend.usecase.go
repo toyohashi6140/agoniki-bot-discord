@@ -18,7 +18,7 @@ func NewGirlFriend(a *models.Agoniki) Responser {
 }
 
 func (g *girlfriend) Response(session *discordgo.Session, event *discordgo.MessageCreate) error {
-	emotion := g.agoniki.NegativeOrPositive(event.Content)
+	emotion := g.agoniki.GetNegativeOrPositive(event.Content)
 	var texts []string
 	if emotion == models.Positive {
 		texts = g.getPositiveText()

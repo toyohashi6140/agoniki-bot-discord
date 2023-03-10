@@ -15,6 +15,7 @@ const (
 type Agoniki struct {
 	called         bool
 	Angry          bool
+	ALittleAngry   bool
 	SeriouslyAngry bool
 	emotion        int
 }
@@ -41,11 +42,16 @@ func (a *Agoniki) Anger(msg string) {
 				a.Angry = true
 			}
 		}
+		for _, swearing := range config.DiscordEnv.Swearings3 {
+			if strings.Contains(msg, swearing) {
+				a.ALittleAngry = true
+			}
+		}
 	}
 }
 
 // NegativeOrPositive -1（ネガティブ）, 0（ニュートラル）, 1（ポジティブ）で判定
-func (a *Agoniki) NegativeOrPositive(msg string) int {
+func (a *Agoniki) GetNegativeOrPositive(msg string) int {
 	hasPositiveWord := false
 	for _, girlfriend := range constants.Girlfriends {
 		if strings.Contains(msg, girlfriend) {
