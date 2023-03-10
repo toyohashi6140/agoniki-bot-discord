@@ -44,7 +44,6 @@ func (a *angry) Response(session *discordgo.Session, event *discordgo.MessageCre
 func (a *angry) getAngryText() []string {
 	i := utils.RandNumber(100)
 	if i%2 == 0 {
-		constants.SwitchYouKnowThatToComeOnYou()
 		return constants.AngryMentionGroup[0]
 	} else if i%3 == 0 {
 		return constants.AngryMentionGroup[1]
@@ -59,6 +58,7 @@ func (a *angry) getAngryText() []string {
 func (a *angry) getSeriouslyAngryText() []string {
 	i := utils.RandNumber(100)
 	if i%2 == 0 {
+		constants.SwitchYouKnowThatToComeOnYou()
 		return constants.SeriouslyAngryMentionGroup[0]
 	} else if i%3 == 0 {
 		return constants.SeriouslyAngryMentionGroup[1]

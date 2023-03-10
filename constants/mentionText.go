@@ -1,6 +1,8 @@
 package constants
 
-import "github.com/toyohashi6140/discord-bot/utils"
+import (
+	"github.com/toyohashi6140/discord-bot/utils"
+)
 
 const (
 	Reply                                     = "呼んだ？"
