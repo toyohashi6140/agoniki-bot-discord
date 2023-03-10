@@ -1,5 +1,7 @@
 package constants
 
+import "github.com/toyohashi6140/discord-bot/utils"
+
 const (
 	Reply                                     = "呼んだ？"
 	WhoIsThat                                 = "それ、誰？"
@@ -10,6 +12,7 @@ const (
 	DoYouWantToBeSharpToo                     = "お前らも尖りたいんか？"
 	CanNotFallInLoveUnlessYouAreBroken        = "壊れてなきゃ恋なんてできねえ"
 	YouKnowThat                               = "あのさぁ・・・"
+	ComeOnYou                                 = "お前さあ・・・"
 	ItIsNotAJokeIfItIsNotFunToBeTold          = "言われている方が面白くなかったらネタじゃない"
 	HaveIFinallyBecomeABot                    = "ついに俺はbotになってしまったのか。"
 	DecentHumanBeing                          = "あの似顔絵を見られたらろくな人間だと思われないんだよ"
@@ -35,7 +38,7 @@ var (
 		{HaveASharpChinDoesNotMeanYouHaveToSayThat},
 		{IsItACrimeToHaveAPointedChin},
 		{DoYouWantToBeSharpToo},
-		{DestinyToIncite},
+		{DecentHumanBeing},
 		{Enough},
 	}
 	SeriouslyAngryMentionGroup = [][]string{
@@ -54,3 +57,11 @@ var (
 		{TheOneWhoWaitsIsTheMan},
 	}
 )
+
+// 1/2の割合でお前さあ・・・に変更
+func SwitchYouKnowThatToComeOnYou() {
+	i := utils.RandNumber(2)
+	if i == 0 {
+		SeriouslyAngryMentionGroup[0][0] = ComeOnYou
+	}
+}
